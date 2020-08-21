@@ -1,5 +1,3 @@
-#!/opt/aci/sw/python/3.6.3_anaconda-5.0.1/bin/python
-
 import click
 import csv
 from faker import Faker
