@@ -66,6 +66,37 @@ parallel -k analysis_4 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment
 parallel -k analysis_5 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv >> \
     ./most_popular_image_format.xml
 
+# Add root element to xml files using echo and tac
+# most_popular_email.xml
+tac most_popular_email.xml > /tmp/tmp_jcn23.xml && \
+    echo '<root>' >> /tmp/tmp_jcn23.xml && \
+    tac /tmp/tmp_jcn23.xml > most_popular_email.xml && \
+    echo '</root>' >> most_popular_email.xml
+
+# most_popular_free_email.xml
+tac most_popular_free_email.xml > /tmp/tmp_jcn23.xml && \
+    echo '<root>' >> /tmp/tmp_jcn23.xml && \
+    tac /tmp/tmp_jcn23.xml > most_popular_free_email.xml && \
+    echo '</root>' >> most_popular_free_email.xml
+
+# most_popular_document_format.xml
+tac most_popular_document_format.xml > /tmp/tmp_jcn23.xml && \
+    echo '<root>' >> /tmp/tmp_jcn23.xml && \
+    tac /tmp/tmp_jcn23.xml > most_popular_document_format.xml && \
+    echo '</root>' >> most_popular_document_format.xml
+
+# most_popular_audio_format.xml
+tac most_popular_audio_format.xml > /tmp/tmp_jcn23.xml && \
+    echo '<root>' >> /tmp/tmp_jcn23.xml && \
+    tac /tmp/tmp_jcn23.xml > most_popular_audio_format.xml && \
+    echo '</root>' >> most_popular_audio_format.xml
+
+# most_popular_image_format.xml
+tac most_popular_image_format.xml > /tmp/tmp_jcn23.xml && \
+    echo '<root>' >> /tmp/tmp_jcn23.xml && \
+    tac /tmp/tmp_jcn23.xml > most_popular_image_format.xml && \
+    echo '</root>' >> most_popular_image_format.xml
+
 # Generate graphs most_popular_email_client_bar_graph.png,
 # most_popular_email_client_pie_chart.png
 # most_popular_free_email_client_bar_graph.png
