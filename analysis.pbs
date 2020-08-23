@@ -59,6 +59,41 @@ parallel -k analysis_4 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment
 parallel -k analysis_5 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv >> \
     ./most_popular_image_format.xml
 
-# Generate graphs and save to scratch
+# Generate graphs most_popular_email_client_bar_graph.png,
+# most_popular_email_client_pie_chart.png
+# most_popular_free_email_client_bar_graph.png
+# most_popular_free_email_client_pie_chart.png
+# most_popular_document_format_bar_graph.png
+# most_popular_document_format_pie_chart.png
+# most_popular_audio_format_bar_graph.png
+# most_popular_audio_format_pie_chart.png
+# most_popular_image_format_bar_graph.png
+# most_popular_image_format_pie_chart.png
+graphgen -f most_popular_email.xml \
+    most_popular_free_email.xml \
+    most_popular_document_format.xml \
+    most_popular_audio_format.xml \
+    most_popular_image_format.xml
+
+# Move graphs to an output directory in work
+if [ ! -d ${HOME}/work/analysis_output ]; then
+    mkdir -p ${HOME}/work/analysis_output
+fi
+
+mv most_popular_email_client_bar_graph.png ${HOME}/work/analysis_output
+mv most_popular_email_client_pie_chart.png ${HOME}/work/analysis_output
+mv most_popular_free_email_client_bar_graph.png ${HOME}/work/analysis_output
+mv most_popular_free_email_client_pie_chart.png ${HOME}/work/analysis_output
+mv most_popular_document_format_bar_graph.png ${HOME}/work/analysis_output
+mv most_popular_document_format_pie_chart.png ${HOME}/work/analysis_output
+mv most_popular_audio_format_bar_graph.png ${HOME}/work/analysis_output
+mv most_popular_audio_format_pie_chart.png ${HOME}/work/analysis_output
+mv most_popular_image_format_bar_graph.png ${HOME}/work/analysis_output
+mv most_popular_image_format_pie_chart.png ${HOME}/work/analysis_output
+
+# Change into the work directory and compress analysis_output into
+# a shareable zip file
+cd ${HOME}/work
+zip -r analysis_output.zip analysis_output
 
 echo Job analysis ended at $(date)
