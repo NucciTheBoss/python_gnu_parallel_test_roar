@@ -20,7 +20,8 @@ def isxml(xml_file):
 
 # 5 input files are the .xml files generated
 @click.command()
-@click.option("-f", "--files", nargs=5, default=None, type=str, help="Input the five xml generated during analysis")
+@click.option("-f", "--files", nargs=5, default=None, type=str, help="Input the five xml files generated during "
+                                                                     "analysis")
 def main(files):
     if files is None:
         print("Please input the five xml files created during analysis")
@@ -29,7 +30,7 @@ def main(files):
         # most_popular_email.xml
         if isxml(files[0]):
             current_doc = minidom.parse(files[0])
-            current_data = current_doc.getElementByTagName("data")
+            current_data = current_doc.getElementsByTagName("data")
 
             # Calculate the total counts from all the xml tags
             yahoo_total = 0
@@ -62,7 +63,7 @@ def main(files):
         # most_popular_free_email.xml
         if isxml(files[1]):
             current_doc = minidom.parse(files[1])
-            current_data = current_doc.getElementByTagName("data")
+            current_data = current_doc.getElementsByTagName("data")
 
             # Calculate the totals for the most popular free email client
             yahoo_free_total = 0
@@ -93,7 +94,7 @@ def main(files):
         # most_popular_document_format.xml
         if isxml(files[2]):
             current_doc = minidom.parse(files[2])
-            current_data = current_doc.getElementByTagName("data")
+            current_data = current_doc.getElementsByTagName("data")
 
             # Calculate the totals of the most popular document formats
             odt_total = 0
@@ -128,7 +129,7 @@ def main(files):
         # most_popular_audio_format.xml
         if isxml(files[3]):
             current_doc = minidom.parse(files[3])
-            current_data = current_doc.getElementByTagName("data")
+            current_data = current_doc.getElementsByTagName("data")
 
             # Calculate the totals of the most popular audio format
             avi_total = 0
@@ -161,7 +162,7 @@ def main(files):
         # most_popular_image_format.xml
         if isxml(files[4]):
             current_doc = minidom.parse(files[4])
-            current_data = current_doc.getElementByTagName("data")
+            current_data = current_doc.getElementsByTagName("data")
 
             jpeg_total = 0
             png_total = 0
