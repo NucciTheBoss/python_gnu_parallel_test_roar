@@ -46,6 +46,13 @@ function analysis_5 () {
     analysis -i $1 -c determine_most_popular_image_format
 }
 
+# Export functions so they can be used by parallel
+export -f analysis_1
+export -f analysis_2
+export -f analysis_3
+export -f analysis_4
+export -f analysis_5
+
 # Now run the analyses using GNU parallel. Keep in same order. Output to .xml files
 cd ${HOME}/scratch/tmp
 parallel -k analysis_1 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv >> \
