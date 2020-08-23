@@ -48,17 +48,21 @@ def main(files):
             counts = [yahoo_total, gmail_total, hotmail_total, other_total]
             email_clients = ["yahoo.com", "gmail.com", "hotmail.com", "Other"]
             index = np.arange(len(email_clients))
+            plt.figure()
             plt.bar(index, counts)
             plt.xlabel("Email Clients")
             plt.ylabel("Number of Users")
             plt.title("Most Popular Email Client")
             plt.xticks(index, email_clients)
             plt.savefig("most_popular_email_client_bar_graph.png")  # Figure is saved to $CWD
+            plt.close()
 
             # Plot the data as a pie chart
+            plt.figure()
             plt.pie(counts, labels=email_clients)
             plt.title("Most Popular Email Client")
             plt.savefig("most_popular_email_client_pie_chart.png")
+            plt.close()
 
         # most_popular_free_email.xml
         if isxml(files[1]):
@@ -79,17 +83,21 @@ def main(files):
             free_email_clients = ["yahoo.com", "gmail.com", "hotmail.com"]
             free_index = np.arange(len(free_email_clients))
             # Plot the bar graph
+            plt.figure()
             plt.bar(free_index, free_counts)
             plt.xlabel("Free Email Clients")
             plt.ylabel("Number of Users")
             plt.title("Most popular free email client")
             plt.xticks(free_index, free_email_clients)
             plt.savefig("most_popular_free_email_client_bar_graph.png")
+            plt.close()
 
             # Plot the pie chart
+            plt.figure()
             plt.pie(free_counts, labels=free_email_clients)
             plt.title("Most Popular Free Email Client")
             plt.savefig("most_popular_free_email_client_pie_chart.png")
+            plt.close()
 
         # most_popular_document_format.xml
         if isxml(files[2]):
@@ -114,17 +122,21 @@ def main(files):
             document_formats = ["odt", "pdf", "docx", "doc", "pages"]
             document_index = np.arange(len(document_formats))
             # Plot the bar graph
+            plt.figure()
             plt.bar(document_index, documents_count)
             plt.xlabel("Document format")
             plt.ylabel("Occurrence")
             plt.title("Most Popular Document Format")
             plt.xticks(document_index, document_formats)
             plt.savefig("most_popular_document_format_bar_graph.png")
+            plt.close()
 
             # Plot the pie chart
+            plt.figure()
             plt.pie(documents_count, labels=document_formats)
             plt.title("Most Popular Document Format")
             plt.savefig("most_popular_document_format_pie_chart.png")
+            plt.close()
 
         # most_popular_audio_format.xml
         if isxml(files[3]):
@@ -147,17 +159,21 @@ def main(files):
             audio_formats = ["avi", "wav", "mp3", "flac"]
             audio_index = np.arange(len(audio_formats))
             # Plot the bar graph
+            plt.figure()
             plt.bar(audio_index, audio_count)
             plt.xlabel("Audio format")
             plt.ylabel("Occurrence")
             plt.title("Most Popular Audio Format")
             plt.xticks(audio_index, audio_formats)
             plt.savefig("most_popular_audio_format_bar_graph.png")
+            plt.close()
 
             # Plot the pie chart
+            plt.figure()
             plt.pie(audio_count, labels=audio_formats)
             plt.title("Most Popular Audio Format")
             plt.savefig("most_popular_audio_format_pie_chart.png")
+            plt.close()
 
         # most_popular_image_format.xml
         if isxml(files[4]):
@@ -179,17 +195,21 @@ def main(files):
             image_formats = ["jpeg", "png", "gif", "jpg"]
             image_index = np.arange(len(image_formats))
             # Plot the bar graph
+            plt.figure()
             plt.bar(image_index, image_count)
             plt.xlabel("Image format")
             plt.ylabel("Occurrence")
             plt.title("Most Popular Image Format")
             plt.xticks(image_index, image_formats)
             plt.savefig("most_popular_image_format_bar_graph.png")
+            plt.close()
 
             # Plot the pie chart
+            plt.figure()
             plt.pie(image_count, labels=image_formats)
             plt.title("Most Popular Image Format")
             plt.savefig("most_popular_image_format_pie_chart.png")
+            plt.close()
 
 
 if __name__ == "__main__":
