@@ -21,25 +21,25 @@ fi
 tac ${PWD}/src/analysis.py > /tmp/analysis_tmp && \
     echo -e '#!'${ENV_PYTHON_PATH} >> /tmp/analysis_tmp && \
     tac /tmp/analysis_tmp > ${PWD}/bin/analysis && \
-    chmod +x analysis
+    chmod +x ${PWD}/bin/analysis
 
 # Set up fakedatagen
 tac ${PWD}/src/fakedatagen.py > /tmp/fakedatagen_tmp && \
     echo -e '#!'${ENV_PYTHON_PATH} >> /tmp/fakedatagen_tmp && \
     tac /tmp/fakedatagen_tmp > ${PWD}/bin/fakedatagen && \
-    chmod +x fakedatagen
+    chmod +x ${PWD}/bin/fakedatagen
 
 # Set up fragmentor
 tac ${PWD}/src/fragmentor.py > /tmp/fragmentor_tmp && \
     echo -e '#!'${ENV_PYTHON_PATH} >> /tmp/fragmentor_tmp && \
     tac /tmp/fragmentor_tmp > ${PWD}/bin/fragmentor && \
-    chmod +x fragmentor
+    chmod +x ${PWD}/bin/fragmentor
 
 # Set up graphgen
 tac ${PWD}/src/graphgen.py > /tmp/graphgen_tmp && \
     echo -e '#!'${ENV_PYTHON_PATH} >> /tmp/graphgen_tmp && \
     tac /tmp/graphgen_tmp > ${PWD}/bin/graphgen && \
-    chmod +x graphgen
+    chmod +x ${PWD}/bin/graphgen
 
 # Test that the executables work
 cd ${PWD}/bin
