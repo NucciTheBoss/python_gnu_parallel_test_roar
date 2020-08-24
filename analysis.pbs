@@ -55,15 +55,15 @@ export -f analysis_5
 
 # Now run the analyses using GNU parallel. Keep in same order. Output to .xml files
 cd ${HOME}/scratch/tmp
-parallel -k analysis_1 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv >> \
+parallel -k analysis_1 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv > \
     ./most_popular_email.xml
-parallel -k analysis_2 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv >> \
+parallel -k analysis_2 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv > \
     ./most_popular_free_email.xml
-parallel -k analysis_3 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv >> \
+parallel -k analysis_3 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv > \
     ./most_popular_document_format.xml
-parallel -k analysis_4 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv >> \
+parallel -k analysis_4 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv > \
     ./most_popular_audio_format.xml
-parallel -k analysis_5 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv >> \
+parallel -k analysis_5 ::: fragment_1.csv fragment_2.csv fragment_3.csv fragment_4.csv > \
     ./most_popular_image_format.xml
 
 # Add root element to xml files using echo and tac
