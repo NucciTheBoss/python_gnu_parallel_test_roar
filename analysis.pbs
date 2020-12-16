@@ -2,6 +2,7 @@
 #PBS -A wff3_b_g_bc_default
 #PBS -l nodes=1:ppn=8
 #PBS -l pmem=3gb
+#PBS -l feature=rhel7
 #PBS -l walltime=1:00:00
 #PBS -j oe
 #PBS -o analysis.log
@@ -10,39 +11,44 @@
 cd ${PBS_O_WORKDIR}
 
 echo Job analysis has started on $(hostname) at $(date)
-module load gcc/5.3.1
-module load parallel/20170522
-module load python/3.6.3-anaconda5.0.1
+module load gcc/8.3.1
+module load parallel/20190222
+module load anaconda3/2019.10
 
 # Activate the python_gnu_parallel environment and set up the PATH
-source activate python_gnu_parallel
-export PATH=${HOME}/work/python_gnu_parallel_test_aci/bin:${PATH}
+conda activate python_gnu_parallel
+export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
 
 if [ ! -d ${HOME}/scratch/tmp ]; then
     mkdir -p ${HOME}/scratch/tmp
 fi
 
 # Create the fragments in ~/scratch/tmp
-fragmentor -i ${HOME}/work/python_gnu_parallel_test_aci/data/data.csv -f 4 -p ~/scratch/tmp/
+fragmentor -i ${HOME}/work/python_gnu_parallel_test_roar/data/data.csv -f 4 -p ~/scratch/tmp/
 
 # Functions to be used with GNU parallel
 function analysis_1 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_email
 }
 
 function analysis_2 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_free_email
 }
 
 function analysis_3 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_document_format
 }
 
 function analysis_4 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_audio_format
 }
 
 function analysis_5 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_image_format
 }
 
