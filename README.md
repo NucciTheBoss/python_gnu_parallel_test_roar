@@ -1,7 +1,7 @@
 # Table of Contents
 
 * [Introduction](#introduction)
-* [Installation](#installation)
+* [Set up the Test](#set-up-the-test)
 * [The Test](#the-test)
 * [License](#license)
 * [Troubleshooting](#troubleshooting)
@@ -28,20 +28,50 @@ it was given, it creates an `xml` entry. That `xml` entry is then written to a `
 relevant graphs. The graphs are then put into a `zip` archive that can then be
 download to a local machine.
 
-# Installation
+# Set up the Test
+## Prerequisites
+In order for this test to work properly, there are two things that you will need to do first:
+
+1. [Initialize the conda package manager](#initialize-the-conda-package-manager)
+2. [Promise to cite GNU parallel](#promise-to-cite-gnu-parallel)
+
+**NOTE:** If you have already initialized the conda package manager and you have promised to cite GNU parallel in your research paper, then you can go ahead and skip straight to the installation step!
+
+### Initialize the conda package manager
+Before you can start working with Anaconda on RHEL7, you need to set up shell support. Luckily, this is pretty easy to do in bash! All you need to do is using the following commands:
+
+```bash
+$ module load anaconda3/2019.10
+$ conda init bash
+$ source ~/.bashrc
+```
+
+If conda initialized itself correctly, you should see `(base)` next to your user name in the terminal. You are now ready to start using the conda package manager to install conda packages!
+
+### Promise to cite GNU parallel
+It's important to give credit where credit is do right? Well the developers of GNU parallel would love to get some credit when you publish your research paper. The developers will also reference your paper in the next release of GNU paralllel. That being said, you need to promise that you will cite GNU parallel in your research paper before you can use it. Luckily, this is pretty easy! All you need to do is use the following commands:
+
+```bash
+$ module load gcc/8.3.1
+$ module load parallel/20190222
+$ parallel --citation
+```
+
+You will then be taken through a simple, interactive dialogue. Just enter `will cite` when you are prompted, hit enter on your keyboard, and now you are ready to start using GNU parallel!
+
+## Installation
 Setting up the testing environment is very easy! All you need to do is use the
 `setup.sh` file that is included in this repository. All you need to do is use
 the following commands:
 
 ```bash
-$ module load git/1.9.4
 $ cd ~/work
-$ git clone https://github.com/NucciTheBoss/python_gnu_parallel_test_aci.git
-$ cd python_gnu_parallel_test_aci
+$ git clone https://github.com/NucciTheBoss/python_gnu_parallel_test_roar.git
+$ cd python_gnu_parallel_test_roar
 $ bash setup.sh
 ```
 
-**IMPORTANT:** You need to clone the `python_gnu_parallel_test_aci` repo into your
+**IMPORTANT:** You need to clone the `python_gnu_parallel_test_roar` repo into your
 `work` directory in order for the installer to work correctly.
 
 What this installer will do is create the conda environment needed for the test
@@ -49,12 +79,10 @@ and create the `analysis`, `fakedatagen`, `fragmentor`, and `graphgen` executabl
 The script will provide you with the path that you need to add to your `PATH`
 environment variable in order to use the executables.
 
-#### Note
-Should you ever want to create your own fake data to use with this test
-then just use the following commands:
+**NOTE:** Should you ever want to create your own fake data to use with this test then just use the following commands:
 
 ```bash
-$ export PATH=${HOME}/work/python_gnu_parallel_test_aci/bin:${PATH}
+$ export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
 $ fakedatagen -c <integer> -o </desired/output/path/file.csv> 
 ```
 
@@ -69,8 +97,8 @@ This test here is to verify that you can successfully load the `python_gnu_paral
 environment and install a simple package. Use the following commands to conduct the test:
 
 ```bash
-$ module load python/3.6.3-anaconda5.0.1
-$ source activate python_gnu_parallel
+$ module load anaconda3/2019.10
+$ conda activate python_gnu_parallel
 $ conda install -c conda-forge tabulate
 $ python -c "from tabulate import tabulate"
 ```
@@ -82,7 +110,7 @@ Time to run the analysis! Simply use the following commands in order to submit
 the job:
 
 ```bash
-$ cd ~/work/python_gnu_parallel_test_aci
+$ cd ~/work/python_gnu_parallel_test_roar
 $ qsub analysis.pbs
 ```
 
