@@ -46,7 +46,7 @@ cd ${PWD}/bin
 if [[ -x analysis && -x fakedatagen && -x fragmentor && -x graphgen ]]; then
     echo "Executables are working"
     echo -e "Please the following command in order to use them:\n"
-    echo 'export PATH=${HOME}/work/python_gnu_parallel_test_aci/bin:${PATH}'
+    echo 'export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}'
     echo -e "\nAll done!"
 
 else

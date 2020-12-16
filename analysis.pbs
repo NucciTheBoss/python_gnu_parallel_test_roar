@@ -17,14 +17,14 @@ module load anaconda3/2019.10
 
 # Activate the python_gnu_parallel environment and set up the PATH
 conda activate python_gnu_parallel
-export PATH=${HOME}/work/python_gnu_parallel_test_aci/bin:${PATH}
+export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
 
 if [ ! -d ${HOME}/scratch/tmp ]; then
     mkdir -p ${HOME}/scratch/tmp
 fi
 
 # Create the fragments in ~/scratch/tmp
-fragmentor -i ${HOME}/work/python_gnu_parallel_test_aci/data/data.csv -f 4 -p ~/scratch/tmp/
+fragmentor -i ${HOME}/work/python_gnu_parallel_test_roar/data/data.csv -f 4 -p ~/scratch/tmp/
 
 # Functions to be used with GNU parallel
 function analysis_1 () {
