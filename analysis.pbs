@@ -28,22 +28,27 @@ fragmentor -i ${HOME}/work/python_gnu_parallel_test_roar/data/data.csv -f 4 -p ~
 
 # Functions to be used with GNU parallel
 function analysis_1 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_email
 }
 
 function analysis_2 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_free_email
 }
 
 function analysis_3 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_document_format
 }
 
 function analysis_4 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_audio_format
 }
 
 function analysis_5 () {
+    export PATH=${HOME}/work/python_gnu_parallel_test_roar/bin:${PATH}
     analysis -i $1 -c determine_most_popular_image_format
 }
 
