@@ -1,7 +1,7 @@
 #!/bin/bash
 # A simple script to set up the test environment for
 # the RHEL7 node testers. Load required modules
-module load python/3.6.3-anaconda5.0.1
+module load anaconda3/2019.10
 
 # Create the conda environment
 echo "Creating python_gnu_parallel environment"
@@ -9,7 +9,7 @@ conda env create -f environment.yml
 
 # Activate the environment and collect the path to
 # the python interpreter
-source activate python_gnu_parallel
+conda activate python_gnu_parallel
 ENV_PYTHON_PATH=$(command -v python)
 
 # Set up executables
