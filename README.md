@@ -41,7 +41,7 @@ In order for this test to work properly, there are two things that you will need
 Before you can start working with Anaconda on RHEL7, you need to set up shell support. Luckily, this is pretty easy to do in bash! All you need to do is using the following commands:
 
 ```bash
-$ module load anaconda3/2019.10
+$ module load anaconda3/2020.07
 $ conda init bash
 $ source ~/.bashrc
 ```
