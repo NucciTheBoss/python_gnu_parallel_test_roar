@@ -49,7 +49,7 @@ $ source ~/.bashrc
 If conda initialized itself correctly, you should see `(base)` next to your user name in the terminal. You are now ready to start using the conda package manager to install conda packages!
 
 ### Promise to cite GNU parallel
-It's important to give credit where credit is do right? Well the developers of GNU parallel would love to get some credit when you publish your research paper. The developers will also reference your paper in the next release of GNU paralllel. That being said, you need to promise that you will cite GNU parallel in your research paper before you can use it. Luckily, this is pretty easy! All you need to do is use the following commands:
+It's important to give credit where credit is do right? Well the developers of GNU parallel would love to get some credit when you publish your research paper. The developers will also reference your paper in the next release of GNU parallel. That being said, you need to promise that you will cite GNU parallel in your research paper before you can use it. Luckily, this is pretty easy! All you need to do is use the following commands:
 
 ```bash
 $ module load gcc/8.3.1
