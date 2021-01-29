@@ -97,7 +97,7 @@ This test here is to verify that you can successfully load the `python_gnu_paral
 environment and install a simple package. Use the following commands to conduct the test:
 
 ```bash
-$ module load anaconda3/2019.10
+$ module load anaconda3/2020.07
 $ conda activate python_gnu_parallel
 $ conda install -c conda-forge tabulate
 $ python -c "from tabulate import tabulate"
